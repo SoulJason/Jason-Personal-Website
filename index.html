@@ -1,229 +1,248 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cabin" />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT-serif" />
-  <title>Jason Sol</title>
-
-  <style>
-    ul {
-      list-style: none;
-      display: flex;
-      align-items: center;
-      margin: 0;
-      padding: 0;
-      justify-content: space-between;
-      width: 50vw;
-    }
-
-
-    li a,
-    .dropbtn {
-      display: inline-block;
-      color: black;
-      text-align: center;
-      padding: 14px 16px;
-      text-decoration: none;
-    }
-
-    li a:hover,
-    .dropdown:hover .dropbtn {
-      background-color: black;
-      color: white;
-    }
-
-    h1 {
-      font-family: sans-serif;
-    }
-
-    h2 {
-      font-family: "cabin", serif;
-      text-align: left;
-    }
-
-    h3 {
-      font-family: cursive;
-    }
-
-    p {
-      font-family: Helvetica, sans-serif;
-      font-size: 1.2em;
-      text-indent: 30px;
-      inline-size: 60vw;
-    }
-
-    .reflection {
-      margin-bottom: 2.5vw;
-    }
-
-    .jason {
-      float: left;
-      margin: 05px 40px 30px 20px;
-      height: 150px;
-    }
-
-    body {
-      background-color: #f6f7f8;
-    }
-
-    a:link {
-      text-decoration: none;
-    }
-
-    a:visited {
-      text-decoration: none;
-    }
-
-    .kirby {
-      float: left;
-      margin: 20px 80px 20px 0px;
-      height: 130px;
-      position: relative;
-      animation: mymove 1s infinite;
-      animation-direction: alternate;
-    }
-
-    @keyframes mymove {
-      from {
-        left: 0px;
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      header {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 80px;
+        background-color: #fff;
+        margin-left: 14.5%;
+        margin-right: 14.5%;
       }
 
-      to {
-        left: 60px;
-      }
-    }
-
-    .line {
-      display: inline-block;
-      width: 100%;
-      border-top: 0.2px solid black;
-    }
-
-
-
-    /* I learned about animate from w3 schools, and wanted my music hobby picture to move around, it 
-      was cool figuring out how it worked, and how to alternate it and move it back and forth from  mozilla's 
-      resource. Unfortunately it has issues with margins.*/
-    .kirby:hover {
-      animation: secondmove 4s;
-      animation-direction: normal;
-    }
-
-    @keyframes secondmove {
-      from {
-        transform: rotate(0deg);
+      nav ul {
+        display: flex;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+        font-size: 14px;
       }
 
-      to {
-        transform: rotate(360deg);
+      nav li:last-child {
+        margin-right: 0;
       }
-    }
 
+      nav a {
+        display: block;
+        padding: 10px 15px;
+        color: #555;
+        text-decoration: none;
+        transition: color 0.3s ease;
+      }
 
-    li.dropdown {
-      display: inline-block;
-    }
+      nav a:hover {
+        color: #0077cc;
+      }
 
-    .dropdown-content {
-      display: none;
-      position: absolute;
-      background-color: #f9f9f9;
-      min-width: 160px;
-      box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-      z-index: 1;
-    }
+      nav a:nth-child(1):hover {
+      }
 
-    .dropdown-content a {
-      color: black;
-      padding: 12px 16px;
-      text-decoration: none;
-      display: block;
-      text-align: left;
-    }
+      nav a:nth-child(2):hover {
+        font-style: italic;
+      }
 
-    .dropdown-content a:hover {
-      background-color: #f1f1f1;
-    }
+      nav a:nth-child(3):hover {
+        text-decoration: underline;
+      }
 
-    .dropdown:hover .dropdown-content {
-      display: block;
-    }
+      body {
+        margin: 0 7.5%;
+        box-sizing: border-box;
+        background-color: white;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+          Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+          sans-serif;
+      }
 
-    /* I made the kirby with headphones spin when you hover over it too.*/
-  </style>
-</head>
+      body:before,
+      body:after {
+        content: "";
+        display: table;
+      }
 
-<body>
-  <header>
-    <nav>
-      <h1>Jason Sol</h1>
-      <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#aboutme">About me</a></li>
-        <li><a href="#myinterests">My Interests</a></li>
-        <li><a href="#contactinfo">Contact Information</a></li>
-        <li class="dropdown">
-          <a class="dropbtn">Dropdown</a>
-          <div class="dropdown-content">
-            <a href="hw2-1.html">Link 1</a>
-            <a href="hw2-2.html">Link 2</a>
-            <a href="hw2-3.html">Link 3</a>
-            <a href="hw2-4.html">Link 3</a>
+      body:after {
+        clear: both;
+      }
+
+      @media only screen and (min-width: 639px) {
+        body:before,
+        body:after {
+          width: 14.5%;
+          height: 100%;
+          position: fixed;
+          top: 0;
+          z-index: -1;
+          background-color: #fafafa;
+          box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+          font-size: 45px;
+        }
+        body:before {
+          left: 0;
+        }
+
+        body:after {
+          right: 0;
+        }
+      }
+
+      .main-div {
+        margin-left: 14.5%;
+        margin-top: 4%;
+      }
+      .circle {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        background-image: url("images/Jason.png");
+        background-size: cover;
+        background-position: center;
+      }
+      .caption {
+        color: gray;
+      }
+      .linkedin {
+        height: 30px;
+        margin-bottom: 30px;
+        margin-top: 10px;
+      }
+
+      .card {
+        width: 50%;
+        border-radius: 20px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        background-color: #fff;
+        padding: 20px;
+      }
+      .suitcase {
+        height: 18.5px;
+        margin-right: 10px;
+      }
+      .work {
+        font-size: 14px;
+        font-weight: bold;
+        margin-bottom: 20px;
+        color: #18181b;
+      }
+      .work-experience {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+      }
+
+      .work-experience img {
+        height: 40px;
+        width: 40px;
+        border-radius: 100%;
+        margin-right: 20px;
+      }
+      .work-experience .details {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+      }
+      .work-experience .company {
+        font-size: 14px;
+        font-weight: 500;
+        margin-bottom: 7px;
+        color: #18181b;
+      }
+      .work-experience .job-title {
+        font-size: 13px;
+        margin-bottom: 10px;
+        color: #71717a;
+      }
+
+      .work-experience .time-period {
+        font-size: 13px;
+        text-align: right;
+        color: #a1a1aa;
+      }
+      .hubspot {
+        height: 50px;
+        background-image: url(images/hubspot.jpeg);
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li><a href="AboutMe.html">About Me</a></li>
+          <li><a href="Projects.html">Projects</a></li>
+          <li><a href="AboutMe.html">Contact Me</a></li>
+          <li><a href="sitemap.html">Sitemap</a></li>
+        </ul>
+      </nav>
+    </header>
+    <div class="main-div">
+      <div id="info">
+        <div class="circle" alt="photo of Jason Sol"></div>
+        <h1>Product Manager and Designer</h1>
+        <p class="caption">
+          I'm Jason, a Product Manager based in San Francisco
+        </p>
+
+        <a href="https://www.linkedin.com/in/jasonsol/">
+          <img
+            class="linkedin"
+            src="images/linkedin2.webp"
+            alt="Linkedin Icon"
+          />
+        </a>
+      </div>
+      <div class="card">
+        <div class="work">
+          <img
+            class="suitcase"
+            src="images/suitcase.png"
+            alt="suitcase icon"
+          />Work
+        </div>
+        <div class="work-experience">
+          <img src="images/playstation.jpeg" alt="playstation logo" />
+          <div class="details">
+            <div class="company">PlayStation</div>
+            <div class="job-title">Incoming Product Manager Intern</div>
           </div>
-        </li>
-      </ul>
-    </nav>
-  </header>
-  <span class="line"></span>
-  <!--I included this audio tag I learned from w3 schools. Super cool feature of html!-->
-  <audio controls>
-    <source src="audio/annotation.m4a" type="audio/mpeg" />
-  </audio>
-  <h2 id="aboutme">About Me</h2>
-  <p>
-    <img src="images/Jason.png" alt="Photo of Jason Sol" class="jason" />
-    Hi! My name is Jason Sol. This is a photo of me I took this summer working
-    at Roblox, I dont know why the background is so awkwardly white.
-  </p>
-
-  <p class="reflection">
-    Reflecting on why I came to
-    <a href="https://www.babson.edu">Babson</a> on my final year, the reason
-    why I went here was definitely because of it's focus on entrepreneurship.
-    I knew going into here that I wanted to participate in building the future
-    with tech and I try it through the business route. I plan on working as a
-    Product Manager in the bay area when I graduate, and I'd love to work on a
-    startup I'm geniunely passionate at some point in the future!
-  </p>
-
-  <h2 id="myinterests">My Interests</h2>
-
-  <p>
-    <img src="https://media.tenor.com/5Q3rGpMAlq8AAAAC/kirby-headphones.gif" alt="kirby with headphones"
-      class="kirby" />
-    When it comes to describing my interests, its hard to begin. I feel like I
-    know too much about randomly different domains and hobbies. I've been
-    interested in video games, fashion, creator economy, tech, music, design,
-    etc. But to boil the essence of what my biggest hobbies are right now, it
-    would be keeping up with
-    <a href="https://www.youtube.com/@ycombinator">tech startups</a>,
-    discovering new experimental
-    <a href="https://rateyourmusic.com/">music</a>, watching the
-    <a href="https://www.nba.com/">NBA</a>, and recently learning how to play
-    the electric guitar.
-  </p>
-  <span class="line"></span>
-  <h3 id="contactinfo">Contact Information</h3>
-  <p>Jason Sol, Web Technologies</p>
-  <a href="https://github.com/SoulJason">Github</a>
-  <a href="https://twitter.com/JasonSol13">Twitter</a>
-  <a href="mailto:jsol1@babson.edu">Email</a>
-  <a href="sitemap.html">sitemap</a>
-</body>
-
+          <div class="time-period">May 2023 - Aug 2023</div>
+        </div>
+        <div class="work-experience">
+          <img src="images/hubspot.jpeg" alt="HubSpot logo" />
+          <div class="details">
+            <div class="company">HubSpot</div>
+            <div class="job-title">Associate Product Manager Co-op</div>
+          </div>
+          <div class="time-period">Aug 2022 - Dec 2022</div>
+        </div>
+        <div class="work-experience">
+          <img src="images/roblox.png" alt="Roblox logo" />
+          <div class="details">
+            <div class="company">Roblox</div>
+            <div class="job-title">Community/Product Manager Intern</div>
+          </div>
+          <div class="time-period">May 2022 - Aug 2022</div>
+        </div>
+        <div class="work-experience">
+          <img src="images/coda.png" alt="Coda logo" />
+          <div class="details">
+            <div class="company">Coda</div>
+            <div class="job-title">Product Growth Fellow</div>
+          </div>
+          <div class="time-period">Feb 2022 - May 20</div>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>
-
