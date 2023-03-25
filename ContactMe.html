@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+     
+   
+     
+      header {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 80px;
+        background-color: #fff;
+        margin-left: 14.5%;
+        margin-right: 14.5%;
+      }
+
+      nav ul {
+        display: flex;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+        font-size: 14px;
+
+      }
+
+     
+
+      nav li:last-child {
+        margin-right: 0;
+      }
+
+      nav a {
+        display: block;
+        padding: 10px 15px;
+        color: #555;
+        text-decoration: none;
+        transition: color 0.3s ease;
+       
+      }
+
+      nav a:hover {
+        color: #0077cc;
+      }
+
+      nav a:nth-child(1):hover {
+      }
+
+      nav a:nth-child(2):hover {
+        font-style: italic;
+      }
+
+      nav a:nth-child(3):hover {
+        text-decoration: underline;
+      }
+
+      .heading {
+        font-size: 48px;
+        color: #12121A;
+      }
+      body {
+        margin: 0 7.5%;
+        box-sizing: border-box;
+        background-color: white;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+          Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+          sans-serif;
+   
+      }
+
+      body:before,
+      body:after {
+        content: "";
+        display: table;
+      }
+
+      body:after {
+        clear: both;
+      }
+
+      @media only screen and (min-width: 639px) {
+        body:before,
+        body:after {
+          width: 14.5%;
+          height: 100%;
+          position: fixed;
+          top: 0;
+          z-index: -1;
+          background-color: #fafafa;
+          box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        body:before {
+          left: 0;
+        }
+
+        body:after {
+          right: 0;
+        }
+      }
+
+
+    
+
+      /* END  */
+      .main-div {
+        padding-right: 40%;
+        padding-top: 140px;
+        line-height: 30px;
+       
+        margin-left: 14.5%;
+        
+      }
+
+
+
+      @media only screen and (max-width: 859px) {
+        .main-div {
+          padding-right: 0%;
+          padding-left: 0%;
+        }
+
+        body:before {
+          left: 0;
+        }
+
+        body:after {
+          right: 0;
+        }
+      }
+
+      /* .main-div {
+        margin-left: 7%;
+        margin-top: 12%;
+        margin-left: 7%;
+        margin-right: 7%;
+        line-height: 40px;
+      } */
+
+      .caption {
+        color: #52525B;
+        font-weight: 300;
+      }
+.logo-container {
+  display: flex;
+  justify-content: left;
+  
+}
+
+.logo {
+  width: 43px;
+  height: 43px;
+  background-image: url('images/Jason.png');
+  border-radius: 100%;
+  background-size: cover;
+  background-position: center;
+  position: absolute;
+  margin-top: 21px;
+  margin-left: 12.2%;
+  align-items: center;
+  
+}
+    </style>
+  </head>
+  <body>
+    <div class="nav-container">
+        <a href="index.html"><div class="jason logo" alt="icon photo of jason"></div></a>
+    <header>
+      <nav>
+        <ul>
+            <li><a href="AboutMe.html">About Me</a></li>
+            <li><a href="Projects.html">Projects</a></li>
+            <li><a href="AboutMe.html">Contact Me</a></li>
+            <li><a href="sitemap.html">Sitemap</a></li>
+        </ul>
+      </nav>
+    </header>
+    </div>
+    <div class="main-div">
+      <div id="info">
+        <div class="circle" alt="photo of Jason Sol"></div>
+        <h1 class="heading">Reach Out! 👋</h1>
+        <p class="caption">
+          I'm always interested in meeting new people and learning new things.  
+        </p>
+        <form action="#" method="POST">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required><br><br>
+            
+            <label for="message">Message:</label><br>
+            <textarea id="message" name="message" rows="5" cols="30" required></textarea><br><br>
+          
+            <input type="submit" value="Submit">
+          </form>
+      </div>
+    
+    
+  </body>
+</html>
