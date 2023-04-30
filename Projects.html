@@ -245,7 +245,7 @@
         display: inline-block;
         position: absolute;
         top: 30px;
-        right: 13%; /* Adjust the right position */
+        right: 13%; 
         width: 30px;
         height: 30px;
         background-color: #ccc;
@@ -256,12 +256,12 @@
       }
 
       .dark-mode-toggle:before {
-        content: "☀️"; /* Replace with your sun icon */
+        content: "☀️"; 
         font-size: 18px;
       }
 
       .dark-mode-toggle.active:before {
-        content: "🌙"; /* Replace with your moon icon */
+        content: "🌙"; 
       }
 
       h1.dark-mode {
@@ -369,6 +369,16 @@ nav.dark-mode a {
           align-items: center;
         }
 
+      }
+
+      @media only screen and (max-width: 643px) {
+        .intro-text {
+          width: 100%;
+        }
+        
+        .main-div {
+          margin-left: 1%;
+        }
       }
 
     </style>
