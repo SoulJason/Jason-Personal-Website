@@ -174,21 +174,139 @@
     line-height: 35px;
     
 }
+
+ /* dark mode styling */
+ body.dark-mode {
+        background-color: #222;
+        color: #ccc;
+      }
+
+      header.dark-mode {
+        background-color: #222;
+      }
+
+      body.dark-mode:before,
+      body.dark-mode:after {
+        background-color: #333;
+      }
+
+      nav.dark-mode ul {
+        background-color: #333;
+      }
+
+      nav.dark-mode a {
+        color: #ccc;
+      }
+
+      .card.dark-mode {
+        background-color: #333;
+        color: #ccc;
+      }
+
+      .dark-mode .work {
+        color: #ccc;
+      }
+
+      .dark-mode .suitcase {
+        filter: invert(100%);
+      }
+
+      .dark-mode .company,
+      .dark-mode .job-title,
+      .dark-mode .time-period {
+        color: #ccc;
+      }
+
+     
+      .header-container {
+        position: relative;
+      }
+
+      .dark-mode-toggle {
+        display: inline-block;
+        position: absolute;
+        top: 30px;
+        right: 13%; 
+        width: 30px;
+        height: 30px;
+        background-color: #ccc;
+        border-radius: 50%;
+        cursor: pointer;
+        text-align: center;
+        line-height: 30px;
+      }
+
+      .dark-mode-toggle:before {
+        content: "☀️"; 
+        font-size: 18px;
+      }
+
+      .dark-mode-toggle.active:before {
+        content: "🌙"; 
+      }
+
+      h1.dark-mode {
+        color: #fff;
+      }
+
+    
+      .caption.dark-mode,
+      .time-period.dark-mode {
+        color: #a1a1aa;
+      }
+      body.dark-mode {
+  background-color: #222;
+  color: #ccc;
+}
+
+header.dark-mode {
+  background-color: #222;
+}
+
+body.dark-mode:before,
+body.dark-mode:after {
+  background-color: #333;
+}
+
+nav.dark-mode ul {
+  background-color: #333;
+}
+
+nav.dark-mode a {
+  color: #ccc;
+}
+
+.card.dark-mode {
+  background-color: #333;
+  color: #ccc;
+}
+
+.dark-mode .card .card-title {
+  color: #fff;
+}
+
+.dark-mode .card .card-description {
+  color: #9CA3AF;
+}
+
     </style>
   </head>
   <body>
-    <div class="nav-container">
-        <a href="index.html"><div class="jason logo" alt="icon photo of jason" title="icon photo of the author of the site"></div></a>
-    <header>
-      <nav>
-        <ul>
-            <li><a href="AboutMe.html">About Me</a></li>
-            <li><a href="Projects.html">Projects</a></li>
-            <li><a href="ContactMe.html">Contact Me</a></li>
-            <li><a href="sitemap.html">Sitemap</a></li>
-        </ul>
-      </nav>
-    </header>
+    <div class="header-container">
+      <div class="nav-container">
+          <a href="index.html"><div class="jason logo" alt="icon photo of jason"></div></a>
+      </div>
+      <header>
+        <nav>
+          <ul>
+              <li><a href="AboutMe.html">About Me</a></li>
+              <li><a href="Projects.html">Projects</a></li>
+              <li><a href="ContactMe.html">Contact Me</a></li>
+              <li><a href="sitemap.html">Sitemap</a></li>
+          </ul>
+          <div class="dark-mode-toggle" onclick="toggleDarkMode()"></div>
+        </nav>
+      </header>
     </div>
     <div class="main-div">
       <div id="info">
@@ -206,7 +324,42 @@
             </div>
 
       </div>
-    
+      <script>
+        // retrieve the current dark mode preference from local storage
+const darkModePref = localStorage.getItem("darkMode");
+
+// if the preference is "on", enable dark mode by default
+if (darkModePref === "on") {
+toggleDarkMode();
+}
+
+        function toggleDarkMode() {
+     const bodyElement = document.querySelector("body");
+     const headerElement = document.querySelector("header");
+     const navElement = document.querySelector("nav");
+     const cardElements = document.querySelectorAll(".card");
+     const toggle = document.querySelector(".dark-mode-toggle");
+     const h1Element = document.querySelector("h1");
+     const captionElements = document.querySelectorAll(".caption, .time-period");
+
+     bodyElement.classList.toggle("dark-mode");
+     headerElement.classList.toggle("dark-mode");
+     navElement.classList.toggle("dark-mode");
+     cardElements.forEach((card) => card.classList.toggle("dark-mode"));
+     h1Element.classList.toggle("dark-mode");
+     captionElements.forEach((caption) => caption.classList.toggle("dark-mode"));
+     toggle.classList.toggle("active");
+
+           // save the current dark mode preference to local storage
+    const isDarkMode = bodyElement.classList.contains("dark-mode");
+  localStorage.setItem("darkMode", isDarkMode ? "on" : "off");
+}
+
+   
+
+   
+   </script>
+
     
   </body>
 </html>
