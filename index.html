@@ -250,6 +250,9 @@
         display: none;
       }
 
+      .dark-mode h1 {
+        color: #fff;
+      }
       @media only screen and (max-width: 639px) {
         .nav-toggle {
           display: block;
@@ -327,6 +330,26 @@
           margin-left: 1%;
         }
       }
+
+      /* Floating Bubble animation */
+      .floating-bubble {
+        z-index: 1000;
+        pointer-events: none;
+        border-radius: 50%;
+        animation: float 5s ease-in-out forwards;
+        width: 40px;
+        height: 40px;
+      }
+
+      @keyframes float {
+        0% {
+          opacity: 1;
+        }
+        100% {
+          transform: translateY(-1000px) translateX(200px) rotate(720deg);
+          opacity: 0;
+        }
+      }
     </style>
   </head>
   <body>
@@ -345,7 +368,7 @@
     <div class="main-div">
       <div id="info">
         <div class="circle" alt="photo of Jason Sol"></div>
-        <h1>Student and Designer</h1>
+        <h1>Product Manager & Designer</h1>
         <span id="typing-animation"></span>
         <p class="caption"></p>
 
@@ -364,14 +387,16 @@
             class="suitcase"
             src="images/suitcase.png"
             alt="suitcase icon"
-          />Work
+          />Work (try clicking on the logos)
         </div>
         <div class="work-experience">
-          <img
-            src="images/playstation.jpeg"
-            alt="playstation logo"
-            title="logo for the company playstation"
-          />
+          <a href="#" class="float-image">
+            <img
+              src="images/playstation.jpeg"
+              alt="playstation logo"
+              title="logo for the company playstation"
+            />
+          </a>
           <div class="details">
             <div class="company">PlayStation</div>
             <div class="job-title">Incoming Product Manager Intern</div>
@@ -379,11 +404,13 @@
           <div class="time-period">May 2023 - Aug 2023</div>
         </div>
         <div class="work-experience">
-          <img
-            src="images/hubspot.jpeg"
-            alt="HubSpot logo"
-            title="logo for the company hubspot"
-          />
+          <a href="#" class="float-image">
+            <img
+              src="images/hubspot.jpeg"
+              alt="HubSpot logo"
+              title="logo for the company hubspot"
+            />
+          </a>
           <div class="details">
             <div class="company">HubSpot</div>
             <div class="job-title">Associate Product Manager Co-op</div>
@@ -391,11 +418,13 @@
           <div class="time-period">Aug 2022 - Dec 2022</div>
         </div>
         <div class="work-experience">
-          <img
-            src="images/roblox.png"
-            alt="Roblox logo"
-            title="logo for the company roblox"
-          />
+          <a href="#" class="float-image">
+            <img
+              src="images/roblox.png"
+              alt="Roblox logo"
+              title="logo for the company roblox"
+            />
+          </a>
           <div class="details">
             <div class="company">Roblox</div>
             <div class="job-title">Community/Product Manager Intern</div>
@@ -403,11 +432,13 @@
           <div class="time-period">May 2022 - Aug 2022</div>
         </div>
         <div class="work-experience">
-          <img
-            src="images/coda.png"
-            alt="Coda logo"
-            title="logo for the company coda"
-          />
+          <a href="#" class="float-image">
+            <img
+              src="images/coda.png"
+              alt="Coda logo"
+              title="logo for the company coda"
+            />
+          </a>
           <div class="details">
             <div class="company">Coda</div>
             <div class="job-title">Product Growth Fellow</div>
@@ -417,7 +448,7 @@
       </div>
     </div>
     <script>
-      // retrieve the current dark mode preference from local storage
+      // retrieve the current dark mode preference from local storage (help by chatgpt)
       const darkModePref = localStorage.getItem("darkMode");
 
       // if the preference is "on", enable dark mode by default
@@ -448,7 +479,7 @@
         navMenu.classList.toggle("show");
       }
 
-      const text = "I'm Jason, a Product Manager based in San Francisco";
+      const text = "I'm Jason, a Product Manager based in San Francisco!";
       let index = 0;
       let speed = 30; // in milliseconds
 
@@ -461,6 +492,37 @@
       }
 
       type();
+
+      // Bubble animation (help by chatgpt)
+      document.querySelectorAll(".float-image").forEach((imgWrapper) => {
+        imgWrapper.addEventListener("click", (e) => {
+          e.preventDefault();
+          const img = e.currentTarget.querySelector("img");
+          const floatingImg = img.cloneNode(true);
+          floatingImg.style.position = "absolute";
+          floatingImg.style.top =
+            img.getBoundingClientRect().top + window.scrollY + "px";
+          floatingImg.style.left = img.getBoundingClientRect().left + "px";
+          floatingImg.style.width = img.offsetWidth + "px";
+          floatingImg.style.height = img.offsetHeight + "px";
+          floatingImg.style.transition = "all 2s ease-in-out";
+          floatingImg.classList.add("floating-bubble");
+          document.body.appendChild(floatingImg);
+
+          setTimeout(() => {
+            floatingImg.style.top =
+              Math.random() * window.innerHeight * 0.25 + "px";
+            floatingImg.style.left =
+              Math.random() * window.innerWidth * 0.75 + "px";
+            floatingImg.style.opacity = "0";
+            floatingImg.style.transform = "scale(0.5)";
+          }, 50);
+
+          setTimeout(() => {
+            document.body.removeChild(floatingImg);
+          }, 2000);
+        });
+      });
     </script>
   </body>
 </html>

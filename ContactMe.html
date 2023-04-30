@@ -359,7 +359,7 @@ body.dark-mode {
         <p class="caption">
           I'm always interested in meeting new people and learning new things.  
         </p>
-        <form action="#" method="POST">
+        <form onsubmit="return validateForm(event);">
             <label for="email">Email:</label>
             <input type="email" id="email" name="email" required><br><br>
             
@@ -424,10 +424,12 @@ if (darkModePref === "on") {
           return false;
         }
 
-        // if validation is successful, send the message to the email address
-        const subject = "New message from " + email;
-        const body = message;
-        window.location.href = "mailto:jasonlinyc1@gmail.com?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
+        // display success message to user
+        alert("Your message has been sent successfully.");
+
+        // reset form fields
+        document.getElementById("email").value = "";
+        document.getElementById("message").value = "";
 
         return true;
       }

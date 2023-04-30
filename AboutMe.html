@@ -6,7 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/png" href="images/Jason.png" />
     <title>About - Jason Sol</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/XvoZPbPe2W6xtf" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.3/umd/popper.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
     <style>
+     
      
    
      
@@ -173,7 +182,9 @@
     text-decoration: none;
 }
 .jasonphoto {
-    height: 200px;
+    margin-left: 40px;
+   
+    height: 80px;
     border-radius: 100%;
 }
 
@@ -355,6 +366,53 @@
           margin-left: 1%;
         }
       }
+
+      .carousel {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  height: 400px;
+  overflow: hidden;
+}
+
+.carousel-image {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
+.carousel-image.active {
+  opacity: 1;
+}
+
+.carousel-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 8px;
+  font-size: 18px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.carousel-button-left {
+  left: 10px;
+}
+
+.carousel-button-right {
+  right: 10px;
+}
+
+.intro-container {
+  display: flex;
+  align-items: center;
+}
     </style>
   </head>
   <body>
@@ -378,7 +436,9 @@
     </div>
     <div class="main-div">
       <div class="intro-text">
-        <h1 class="heading">Hi, I'm Jason 🎵</h1>
+        <div class = "intro-container">
+        <h1 class="heading">Hi, I'm Jason 🎵</h1> <img class="jasonphoto" src="images/Jason.png" alt="photo of jason" title="this is a photo of the owner of this site">
+        </div>
         <p class="caption">
           I'm a Product Manager who loves learning. I've had various PM experiences at various companies, and my focus is usually on User Experience, Product Strategy, and Design Thinking. 
         </p>
@@ -386,13 +446,27 @@
         <p class="caption">I've also published a mobile app with my friend on the App Store:</p>
         <a href="https://apps.apple.com/us/app/onecase-social-accountability/id1604737461" class="linktoapp"><p class="linktoapp">Onecase: A social accountability app to help you and your friends get each other productive</p></a>
       
-        <p class="caption"c>On my free time I love discovering new music, studying what new startups/tech are being talked about, or trying out new food</p>
+        <p class="caption"c>On my free time I love discovering new music, studying what new startups/tech are being talked about, or trying out new food.</p>
+        <p class="caption"c>Recently, my internship experience the past year at Roblox & HubSpot majorly majorly impacted I view the world and my work. I hold my memories with a lot of sentimental value, here's a slideshow of some highlights. </p>
         <br>
-        <img class="jasonphoto" src="images/Jason.png" alt="photo of jason" title="this is a photo of the owner of this site">
+      
       </div>
     
+      <div class="carousel">
+        <img src="images/image1.png" class="carousel-image active" alt="hubspot headquarters">
+        <img src="images/image2.png" class="carousel-image" alt="My roblox badge">
+        <img src="images/image3.png" class="carousel-image" alt="roblox developer conference 2022">
+        <img src="images/image4.png" class="carousel-image" alt="My speaking at a16z office">
+        <img src="images/image5.png" class="carousel-image" alt="Roblox office lobby">
+        <img src="images/image6.png" class="carousel-image" alt="Roblox all hands meeting">
+        <img src="images/image7.png" class="carousel-image" alt="Roblox week theater">
+        <img src="images/image8.png" class="carousel-image" alt="Me and my intern friends">
+        <button class="carousel-button carousel-button-left">&lt;</button>
+    <button class="carousel-button carousel-button-right">&gt;</button>
+      </div>
+      </section>
       <script>
-// retrieve the current dark mode preference from local storage
+// retrieve the current dark mode preference from local storage (help by chatgpt)
       const darkModePref = localStorage.getItem("darkMode");
 
       // if the preference is "on", enable dark mode by default
@@ -426,9 +500,32 @@
         const navMenu = document.querySelector("nav ul");
         navMenu.classList.toggle("show");
       }
-      /* experiment */
+      /* carousel */
 
-    
+      const carouselImages = document.querySelectorAll('.carousel-image');
+const leftButton = document.querySelector('.carousel-button-left');
+const rightButton = document.querySelector('.carousel-button-right');
+let currentIndex = 0;
+const delay = 3000;
+
+function changeImage(nextIndex) {
+  carouselImages[currentIndex].classList.remove('active');
+  currentIndex = nextIndex;
+  carouselImages[currentIndex].classList.add('active');
+}
+
+function showNextImage() {
+  changeImage((currentIndex + 1) % carouselImages.length);
+}
+
+function showPreviousImage() {
+  changeImage((currentIndex - 1 + carouselImages.length) % carouselImages.length);
+}
+
+setInterval(showNextImage, delay);
+
+leftButton.addEventListener('click', showPreviousImage);
+rightButton.addEventListener('click', showNextImage);
       </script>
   </body>
 </html>
