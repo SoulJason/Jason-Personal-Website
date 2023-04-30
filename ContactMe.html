@@ -407,6 +407,30 @@ if (darkModePref === "on") {
         navMenu.classList.toggle("show");
       }
    
+      function validateForm() {
+        const email = document.getElementById("email").value;
+        const message = document.getElementById("message").value;
+
+        // validate email address
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailPattern.test(email)) {
+          alert("Please enter a valid email address.");
+          return false;
+        }
+
+        // validate message
+        if (message.trim() === "") {
+          alert("Please enter a message.");
+          return false;
+        }
+
+        // if validation is successful, send the message to the email address
+        const subject = "New message from " + email;
+        const body = message;
+        window.location.href = "mailto:jasonlinyc1@gmail.com?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
+
+        return true;
+      }
    </script>
   </body>
 </html>

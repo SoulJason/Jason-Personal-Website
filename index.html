@@ -346,9 +346,8 @@
       <div id="info">
         <div class="circle" alt="photo of Jason Sol"></div>
         <h1>Student and Designer</h1>
-        <p class="caption">
-          I'm Jason, a Product Manager based in San Francisco
-        </p>
+        <span id="typing-animation"></span>
+        <p class="caption"></p>
 
         <a href="https://www.linkedin.com/in/jasonsol/">
           <img
@@ -448,6 +447,20 @@
         const navMenu = document.querySelector("nav ul");
         navMenu.classList.toggle("show");
       }
+
+      const text = "I'm Jason, a Product Manager based in San Francisco";
+      let index = 0;
+      let speed = 30; // in milliseconds
+
+      function type() {
+        if (index < text.length) {
+          document.querySelector(".caption").innerHTML += text.charAt(index);
+          index++;
+          setTimeout(type, speed);
+        }
+      }
+
+      type();
     </script>
   </body>
 </html>
