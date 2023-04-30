@@ -86,8 +86,13 @@
       body:after {
         clear: both;
       }
+      @media only screen and (max-width: 901px) {
+        .heading {
+        line-height: 60px;
+        }
+      }
 
-      @media only screen and (min-width: 639px) {
+      @media only screen and (max-width: 639px) {
         body:before,
         body:after {
           width: 14.5%;
@@ -99,6 +104,14 @@
           box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
         }
 
+        .maincaption {
+          width: 80%;
+        }
+        .heading {
+          font-size: 30px;
+          width: 70%;
+          line-height: 40px;
+        }
         body:before {
           left: 0;
         }
@@ -113,6 +126,7 @@
         
         padding-top: 140px;
         line-height: 30px;
+     
       }
       /* .main-div {
         margin-left: 7%;
@@ -400,7 +414,7 @@ nav.dark-mode a {
       <div id="info">
         <div class="circle" alt="photo of Jason Sol"></div>
         <h1 class="heading">Things I've enjoyed making 🛠️ </h1>
-        <p class="caption">
+        <p class="caption maincaption">
          Some cool projects I had a lot of fun making, quite proud of these
         </p>
         <div class="project-board"> 
@@ -483,7 +497,7 @@ nav.dark-mode a {
             </a>
     
             <script>
-              // retrieve the current dark mode preference from local storage
+              // retrieve the current dark mode preference from local storage (help by chatgpt)
       const darkModePref = localStorage.getItem("darkMode");
 
 // if the preference is "on", enable dark mode by default

@@ -423,7 +423,7 @@ toggleDarkMode();
      captionElements.forEach((caption) => caption.classList.toggle("dark-mode"));
      toggle.classList.toggle("active");
 
-           // save the current dark mode preference to local storage
+           // save the current dark mode preference to local storage (help by chatgpt)
     const isDarkMode = bodyElement.classList.contains("dark-mode");
   localStorage.setItem("darkMode", isDarkMode ? "on" : "off");
 }

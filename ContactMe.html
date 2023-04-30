@@ -255,6 +255,12 @@ body.dark-mode {
       .nav-toggle {
   display: none;
 }
+
+@media only screen and (max-width: 772px) {
+        .caption {
+          width: 70%;
+        }
+      }
 @media only screen and (max-width: 639px) {
         .nav-toggle {
           display: block;
@@ -372,7 +378,7 @@ body.dark-mode {
     
       <script>
 
-        // retrieve the current dark mode preference from local storage
+        // retrieve the current dark mode preference from local storage  (help from chatgpt)
       const darkModePref = localStorage.getItem("darkMode");
 
 // if the preference is "on", enable dark mode by default
